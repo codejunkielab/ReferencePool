@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <Authors>tandbox</Authors>
+    <RootNamespace>Tandbox.Log</RootNamespace>
+    <Description>
+      `ReferencePool` is a utility class designed to manage object pooling efficiently. It provides methods to acquire and release reusable objects, reducing memory allocation overhead and improving application performance. The class supports tracking of object usage and offers detailed information about the pool's state, making it ideal for high-performance scenarios.
+    </Description>
+    <Copyright>© 2025 Tandbox</Copyright>
+    <PackageId>ReferencePool</PackageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl></PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+    <None Include="../LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
