@@ -1,4 +1,4 @@
-﻿namespace Tandbox.ReferencePool;
+namespace CodeJunkie.ReferencePool;
 
 /// <summary>
 /// Provides a mechanism for managing reusable reference objects.

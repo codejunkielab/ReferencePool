@@ -1,6 +1,6 @@
-﻿namespace Tandbox.ReferencePool.Tests;
+namespace CodeJunkie.ReferencePool.Tests;
 
-using Tandbox.ReferencePool;
+using CodeJunkie.ReferencePool;
 using LightMock;
 using LightMock.Generator;
 using Shouldly;
@@ -90,7 +90,7 @@ public class ReferencePoolTests {
     }
   }
 
-  private class MockReference : IReference {
+  private sealed class MockReference : IReference {
     public void Clear() {
       // Mock implementation of Clear
     }

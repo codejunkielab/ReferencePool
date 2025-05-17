@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReferencePool\ReferencePool.csproj" />
+    <ProjectReference Include="..\CodeJunkie.ReferencePool\CodeJunkie.ReferencePool.csproj" />
   </ItemGroup>
 
 </Project>

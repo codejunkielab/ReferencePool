@@ -1,6 +1,6 @@
-﻿namespace Tandbox.ReferencePool.Tests;
+namespace CodeJunkie.ReferencePool.Tests;
 
-using Tandbox.ReferencePool;
+using CodeJunkie.ReferencePool;
 using LightMock;
 using LightMock.Generator;
 using Shouldly;

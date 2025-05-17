@@ -1,4 +1,4 @@
-﻿namespace Tandbox.ReferencePool;
+namespace CodeJunkie.ReferencePool;
 
 using System;
 using System.Runtime.InteropServices;

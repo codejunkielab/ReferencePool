@@ -4,10 +4,10 @@ The `ReferencePool` class provides a mechanism for managing object pooling to re
 
 ## Installation
 
-Install the latest version of the [Tandbox.ReferencePool] package from nuget:
+Install the latest version of the [CodeJunkie.ReferencePool] package from nuget:
 
 ```sh
-dotnet add package Tandbox.ReferencePool
+dotnet add package CodeJunkie.ReferencePool
 ```
 
 ## Features
@@ -72,7 +72,7 @@ The `ReferencePool` class provides a mechanism for managing object pooling to re
 
 ## Namespace
 
-`Tandbox.ReferencePool`
+`CodeJunkie.ReferencePool`
 
 ## Key Classes and Interfaces
 

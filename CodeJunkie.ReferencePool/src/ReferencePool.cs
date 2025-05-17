@@ -1,4 +1,4 @@
-﻿namespace Tandbox.ReferencePool;
+namespace CodeJunkie.ReferencePool;
 
 using System.Collections.Generic;
 using System;
@@ -80,7 +80,7 @@ public static class ReferencePool {
     /// </exception>
     public T Acquire<T>() where T : class, IReference, new() {
       if (typeof(T) != _referenceType) {
-        throw new Exception("Invalid type");
+        throw new InvalidOperationException("The type being acquired does not match the type managed by this collection.");
       }
 
       _usingReferenceCount++;
@@ -124,7 +124,7 @@ public static class ReferencePool {
       reference.Clear();
       lock (_references) {
         if (_enableStrictCheck && _references.Contains(reference)) {
-          throw new Exception("Reference has been released.");
+          throw new InvalidOperationException("The reference has already been released.");
         }
 
         _references.Enqueue(reference);
@@ -141,7 +141,7 @@ public static class ReferencePool {
     /// <param name="count">The number of references to add.</param>
     public void Add<T>(int count) where T : class, IReference, new() {
       if (typeof(T) != _referenceType) {
-        throw new Exception("Invalid type");
+        throw new InvalidOperationException("The type being added does not match the type managed by this collection.");
       }
 
       lock (_references) {
@@ -194,7 +194,7 @@ public static class ReferencePool {
   }
 
   private static readonly Dictionary<Type, ReferenceCollection> _referenceCollections = new Dictionary<Type, ReferenceCollection>();
-  private static bool _enableStrictCheck = false;
+  private static bool _enableStrictCheck;
 
   /// <summary>
   /// Accessor and mutator for enabling or disabling strict checks.
@@ -274,7 +274,7 @@ public static class ReferencePool {
   /// </exception>
   public static void Release(IReference reference) {
     if (reference == null) {
-      throw new Exception("Invalid reference argument");
+      throw new ArgumentNullException(nameof(reference), "The reference argument cannot be null.");
     }
 
     Type referenceType = reference.GetType();
@@ -343,21 +343,21 @@ public static class ReferencePool {
     }
 
     if (referenceType == null) {
-      throw new Exception("Invalid referencetype argument");
+      throw new ArgumentNullException(nameof(referenceType), "The reference type argument cannot be null.");
     }
 
     if (!referenceType.IsClass || referenceType.IsAbstract) {
-      throw new Exception("A reference type is not a non-abstract class type.");
+      throw new ArgumentException("The reference type must be a non-abstract class type.", nameof(referenceType));
     }
 
     if (!typeof(IReference).IsAssignableFrom(referenceType)) {
-      throw new Exception($"Invalid reference type '{referenceType.FullName}'");
+      throw new InvalidOperationException($"The reference type '{referenceType.FullName}' is not valid.");
     }
   }
 
   private static ReferenceCollection GetReferenceCollection(Type referenceType) {
     if (referenceType == null) {
-      throw new Exception("Invalid reference type argument");
+      throw new ArgumentNullException(nameof(referenceType), "The reference type argument cannot be null.");
     }
 
     ReferenceCollection referenceCollection = null!;
